@@ -1,7 +1,9 @@
-# libxposed module properties
-# Minimum API version (libxposed)
-minApiVersion=101
-# Target API version (libxposed)
-targetApiVersion=101
-# Whether it is a static scope
+
+name=DoubleTapVolumeRecorder
+version=1.0
+versionCode=1
+author=YourName
+description=双击音量键静默触发录音
+minApiVersion=100
+targetApiVersion=100
 staticScope=true
