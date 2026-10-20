@@ -15,7 +15,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false // 绝对不能开混淆
+            isMinifyEnabled = false // 必须关闭混淆，否则入口类会被改得面目全非
         }
     }
 
@@ -32,6 +32,6 @@ android {
 
 dependencies {
     compileOnly("androidx.annotation:annotation:1.9.1")
-    // 直接从云端拉取 API 100 版本，不用本地文件
-    compileOnly("io.github.libxposed:api:100")
+    // 使用 JitPack 上 API 100 对应的确切版本号
+    compileOnly("io.github.libxposed:api:-100-ge2588ee-22") 
 }
