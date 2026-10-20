@@ -15,23 +15,17 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false // 必须关闭混淆，否则入口类会被改得面目全非
+            isMinifyEnabled = false // 绝对不混淆
         }
     }
-
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    lint {
-        checkReleaseBuilds = false
-        targetSdk = 34
-    }
 }
 
 dependencies {
-    compileOnly("androidx.annotation:annotation:1.9.1")
-    // 使用 JitPack 上 API 100 对应的确切版本号
-    compileOnly("io.github.libxposed:api:-100-ge2588ee-22") 
+    // 传统 API，极其稳定，云端秒下
+    compileOnly("de.robv.android.xposed:api:82")
 }
