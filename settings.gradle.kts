@@ -10,11 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        // 官方核心仓库，这次绝对能找到依赖
-        maven { url = uri("https://raw.githubusercontent.com/libxposed/maven/main") }
+        // 从 JitPack 拉取 libxposed 依赖
+        maven { url = uri("https://jitpack.io") } 
     }
 }
 
 rootProject.name = "LSPosed-module-template"
 include(":app")
-// 注意：这里故意不 include 那个破本地的 libxposed-api 文件夹了
