@@ -41,14 +41,17 @@ public class MainModule extends XposedModule {
                     if (event != null && event.getAction() == KeyEvent.ACTION_DOWN) {
                         int keyCode = event.getKeyCode();
                         long now = SystemClock.uptimeMillis();
+                        // 音量下键双击
                         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
                             if (now - lastVolumeDownTime < DOUBLE_TAP_TIMEOUT) {
                                 lastVolumeDownTime = 0;
                                 triggerRecording(chain);
-                                return null;
+                                return null; // 拦截事件，防止音量变化
                             }
                             lastVolumeDownTime = now;
-                        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+                        } 
+                        // 音量上键双击
+                        else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
                             if (now - lastVolumeUpTime < DOUBLE_TAP_TIMEOUT) {
                                 lastVolumeUpTime = 0;
                                 triggerRecording(chain);
