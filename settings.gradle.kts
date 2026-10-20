@@ -10,10 +10,10 @@ plugins {
 }
 
 dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-    }
+repositories {
+    google()
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") } 
 }
 
 rootProject.name = "XposedModuleTemplate"
