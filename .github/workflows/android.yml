@@ -18,11 +18,10 @@ jobs:
         distribution: 'temurin'
 
     - name: Build with Gradle
-      run: chmod +x gradlew && ./gradlew assembleRelease
+      run: chmod +x gradlew && ./gradlew assembleDebug
 
-    # 👇 下面这就是刚才漏掉的上传步骤，必须加！
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: App-Release-APK
-        path: app/build/outputs/apk/release/*.apk
+        name: My-App-Debug
+        path: app/build/outputs/apk/debug/*.apk
