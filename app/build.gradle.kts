@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.module"
-    compileSdk = 36 // Can be modified as needed
+    compileSdk = 34 // 改回 34，云端环境绝对支持
 
     defaultConfig {
         applicationId = "com.example.module"
@@ -13,13 +13,9 @@ android {
         versionName = "1.0.0"
     }
 
-    lint {
-        targetSdk = 36
-    }
-
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false // ⚠️ 必须关掉！防止入口类被混淆
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -28,12 +24,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_17 // 退回 17，最稳
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     lint {
         checkReleaseBuilds = false
+        targetSdk = 34
     }
 
     dependenciesInfo {
@@ -43,5 +40,5 @@ android {
 
 dependencies {
     compileOnly("androidx.annotation:annotation:1.9.1")
-    compileOnly("io.github.libxposed:api")
+    compileOnly(project(":libxposed-api")) 
 }
